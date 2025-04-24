@@ -23,8 +23,6 @@
   },
   "scripts": {
     "build": "napi build --platform --release",
-    "universal": "napi universal",
-    "version": "napi version",
     "bench": "node main.mjs"
   }
 }
