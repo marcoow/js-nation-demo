@@ -1,0 +1,12 @@
+{
+  "name": "js-nation-demo",
+  "version": "0.0.1",
+  "description": "Simple demo project showing how to speed up Node with Rust.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Marco Otte-Witte",
+  "private": true
+}
