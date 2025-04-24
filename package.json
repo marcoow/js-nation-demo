@@ -4,9 +4,13 @@
   "description": "Simple demo project showing how to speed up Node with Rust.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bench": "node index.js"
   },
+  "type": "module",
   "keywords": [],
   "author": "Marco Otte-Witte",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "tinybench": "^4.0.1"
+  }
 }
