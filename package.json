@@ -1,16 +1,30 @@
 {
   "name": "js-nation-demo",
   "version": "0.0.1",
-  "description": "Simple demo project showing how to speed up Node with Rust.",
-  "main": "index.js",
-  "scripts": {
-    "bench": "node index.js"
+  "main": "main.js",
+  "types": "index.d.ts",
+  "napi": {
+    "name": "js-nation-demo",
+    "triples": {
+      "additional": [
+        "aarch64-apple-darwin",
+        "aarch64-unknown-linux-gnu",
+        "aarch64-unknown-linux-musl"
+      ]
+    }
   },
-  "type": "module",
-  "keywords": [],
-  "author": "Marco Otte-Witte",
   "private": true,
   "devDependencies": {
+    "@napi-rs/cli": "^2.18.4",
     "tinybench": "^4.0.1"
+  },
+  "engines": {
+    "node": ">= 20"
+  },
+  "scripts": {
+    "build": "napi build --platform --release",
+    "universal": "napi universal",
+    "version": "napi version",
+    "bench": "node main.mjs"
   }
 }

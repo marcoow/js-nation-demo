@@ -7,11 +7,22 @@ settings:
 importers:
   .:
     devDependencies:
+      "@napi-rs/cli":
+        specifier: ^2.18.4
+        version: 2.18.4
       tinybench:
         specifier: ^4.0.1
         version: 4.0.1
 
 packages:
+  "@napi-rs/cli@2.18.4":
+    resolution:
+      {
+        integrity: sha512-SgJeA4df9DE2iAEpr3M2H0OKl/yjtg1BnRI5/JyowS71tUWhrfSu2LT0V3vlHET+g1hBVlrO60PmEXwUEKp8Mg==,
+      }
+    engines: { node: ">= 10" }
+    hasBin: true
+
   tinybench@4.0.1:
     resolution:
       {
@@ -20,4 +31,6 @@ packages:
     engines: { node: ">=18.0.0" }
 
 snapshots:
+  "@napi-rs/cli@2.18.4": {}
+
   tinybench@4.0.1: {}
