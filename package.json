@@ -16,13 +16,13 @@
   "private": true,
   "devDependencies": {
     "@napi-rs/cli": "^2.18.4",
-    "tinybench": "^4.0.1"
+    "express": "^5.1.0"
   },
   "engines": {
     "node": ">= 20"
   },
   "scripts": {
     "build": "napi build --platform --release",
-    "bench": "node main.mjs"
+    "start": "node main.mjs"
   }
 }

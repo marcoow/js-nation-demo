@@ -1,25 +1,29 @@
-import { Bench } from "tinybench";
-import { fib as rustFib } from "./index.js";
+import express from "express";
+import { readFile } from "node:fs/promises";
+import { highscore as highscoreRs } from "./index.js";
 
-function fib(n) {
-  if (n <= 1) {
-    return n;
-  } else {
-    return fib(n - 1) + fib(n - 2);
+const app = express();
+const PORT = 3000;
+
+app.get("/highscore", async (req, res) => {
+  const data = await readFile("data.json", "utf8");
+  const entries = JSON.parse(data);
+
+  let maxScore = 0;
+  for (const entry of entries) {
+    if (entry.score > maxScore) {
+      maxScore = entry.score;
+    }
   }
-}
 
-const bench = new Bench({ name: "Fibonacci", time: 10 });
+  res.status(200).send(maxScore);
+});
 
-bench
-  .add("Node", () => {
-    fib(30);
-  })
-  .add("Rust", async () => {
-    rustFib(30);
-  });
+app.get("/highscore.rs", async (req, res) => {
+  const maxScore = highscoreRs();
+  res.status(200).send(maxScore);
+});
 
-await bench.run();
-
-console.log(bench.name);
-console.table(bench.table());
+app.listen(PORT, () => {
+  console.log(`Server listening at http://localhost:${PORT}`);
+});

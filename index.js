@@ -310,6 +310,6 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { fib } = nativeBinding
+const { highscore } = nativeBinding
 
-module.exports.fib = fib
+module.exports.highscore = highscore
