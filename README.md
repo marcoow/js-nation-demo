@@ -31,3 +31,21 @@ for the Rust implementation:
 ```
 curl -i localhost:3000/highscore.rs
 ```
+
+## Hot to Diagnose
+
+Use [clinic.js](https://clinicjs.org) to diagnose the Node endpoint:
+
+```
+clinic doctor --on-port 'autocannon localhost:$PORT/highscore' -- node main.mjs
+```
+
+…as well as the Rust endpoint:
+
+```
+clinic doctor --on-port 'autocannon localhost:$PORT/highscore.rs' -- node main.mjs
+```
+
+This will run a load test against each endpoint (using
+[`autocannon`](https://github.com/mcollina/autocannon) with its default
+settings) and present a report afterwards.
